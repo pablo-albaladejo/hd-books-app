@@ -1,26 +1,16 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow
- */
-
 import React, { Component } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import * as UserService from '../services/user'
 import * as BookService from '../services/book'
 
-type Props = {};
-export default class App extends Component<Props> {
-
+export default class Home extends Component {
 
   state = {
     users: [],
     books: [],
   }
 
-  componentDidMount(){
+  componentDidMount() {
 
     UserService.getAllUsers().then(users => {
       this.setState({
@@ -35,7 +25,6 @@ export default class App extends Component<Props> {
     })
   }
 
-
   render() {
 
     return (
@@ -46,6 +35,12 @@ export default class App extends Component<Props> {
             <Text>{book.title}</Text>
           )
         })}
+
+        <TouchableOpacity  onPress={
+          () => this.props.navigation.navigate('Scanner')
+        }>
+            <Text>SCANNER</Text>
+        </TouchableOpacity>
 
       </View>
     );
