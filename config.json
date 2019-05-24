@@ -1,0 +1,6 @@
+{
+    "API": {
+        "BASE_URL": "https://a9f86f50.ngrok.io",
+        "USERS": "users"
+    }
+}
