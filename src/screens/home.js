@@ -51,7 +51,7 @@ export default class Home extends Component {
           onPress={() => this.props.navigation.navigate('Scanner')}
           style={styles.button}
         >
-          <Icon name="qrcode-scan" size={20} color="#17ae8e" />
+          <Icon name="qrcode-scan" size={20} color="#fff" />
           <Text style={styles.caption}>SCAN A BOOK</Text>
         </TouchableOpacity>
 
@@ -84,7 +84,7 @@ const styles = StyleSheet.create({
 
   button: {
     alignItems: 'center',
-    backgroundColor: '#fff',
+    backgroundColor: '#353745',
     height: 60,
     justifyContent: 'center',
     width: '100%',
@@ -92,7 +92,7 @@ const styles = StyleSheet.create({
   },
 
   caption: {
-    color: '#17ae8e',
+    color: '#fff',
     fontSize: 20,
     letterSpacing: 5,
     marginLeft: 10
