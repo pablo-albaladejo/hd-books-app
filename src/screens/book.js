@@ -39,7 +39,7 @@ export default class Book extends Component {
             <View style={styles.container}>
               <View style={styles.background} />
                 {book && (
-                    <View style={{width: SCREEN_WIDTH, flexDirection: 'column', justifyContent: 'space-around' }}>
+                    <View style={{flex: 1, flexDirection: 'column', alignItems: 'center' }}>
                       <View style={{ width: '90%', marginTop: 40 }}>
                         <BookCard
                           author={book.author}
@@ -90,6 +90,8 @@ const styles = StyleSheet.create({
     height: 60,
     justifyContent: 'center',
     flexDirection: 'row',
+    flex: 1,
+    width: SCREEN_WIDTH
   },
 
   caption: {

@@ -4,7 +4,7 @@ export default StyleSheet.create({
   container: {
     backgroundColor: '#fff',
     flexDirection: 'column',
-    height: '80%',
+    minHeight: '80%',
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 1 },
     shadowOpacity: 0.2,
