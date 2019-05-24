@@ -6,30 +6,34 @@ import * as BookService from '../services/book';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import BookList from '../components/book/BookList';
+import Loading from '../layout/loading';
 
 export const user = {
-    email: 'raquel.fernandez@guidesmiths.com'
+  email: 'raquel.fernandez@guidesmiths.com'
 }
 export default class Home extends Component {
 
   state = {
     users: [],
     books: [],
+    isLoading: true,
   }
 
   componentDidMount() {
 
-    UserService.getAllUsers().then(users => {
-      this.setState({
-        users
+    this.setState({
+      isLoading: true,
+    }, () => {
+
+      BookService.getAllBooksById(user.email).then(books => {
+        this.setState({
+          books,
+          isLoading: false
+        })
       })
+
     })
 
-    BookService.getAllBooksById(user.email).then(books => {
-      this.setState({
-        books
-      })
-    })
   }
 
   onBookPressed = (id) => {
@@ -59,6 +63,9 @@ export default class Home extends Component {
           <Text style={styles.caption}>SCAN A BOOK</Text>
         </TouchableOpacity>
 
+        <Loading
+          isLoading={this.state.isLoading}
+        />
       </View>
     );
   }
