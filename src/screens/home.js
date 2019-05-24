@@ -31,7 +31,7 @@ export default class Home extends Component {
 
     return (
       <View style={styles.container}>
-        <View style={styles.background}/>
+        <View style={styles.background} />
 
         <View style={{ zIndex: 1 }}>
           {this.state.books.map(book => {
@@ -44,12 +44,12 @@ export default class Home extends Component {
               />
             )
           })}
-          </View>
+        </View>
 
-        <TouchableOpacity  onPress={
+        <TouchableOpacity onPress={
           () => this.props.navigation.navigate('Scanner')
         }>
-            <Text>SCANNER</Text>
+          <Text>Scan a book</Text>
         </TouchableOpacity>
 
       </View>
