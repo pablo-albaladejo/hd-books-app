@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View } from 'react-native';
+import { Text, View, TouchableOpacity } from 'react-native';
 import *  as BookService from '../services/book'
 export default class Book extends Component {
 
@@ -18,14 +18,24 @@ export default class Book extends Component {
 
     }
 
+
+    onLeasing = (user_id, book_id) => {
+        BookService.leaseBook(user_id, book_id)
+    }
+
     render() {
         const { book } = this.state;
         return (
             <View>
                 {book && (
-                    <Text>
-                        {'BOOK:' + JSON.stringify(book)}
-                    </Text>
+                    <View>
+                        <TouchableOpacity onPress={() => this.onLeasing(1,1)}>
+                            <Text>{'Leasing'}</Text>
+                        </TouchableOpacity>
+                        <Text>
+                            {'BOOK:' + JSON.stringify(book)}
+                        </Text>
+                    </View>
                 )}
             </View>
         )
