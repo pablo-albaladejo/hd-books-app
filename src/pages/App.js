@@ -7,49 +7,46 @@
  */
 
 import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View } from 'react-native';
-
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
-  android:
-    'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
-});
-
-
-const books = [
-  {
-    isbn: 1,
-    thumbnailUrl: 'https://image.flaticon.com/icons/png/128/1024/1024218.png',
-    title: 'title',
-    description: 'description'
-  },
-  {
-    isbn: 2,
-    thumbnailUrl: 'https://image.flaticon.com/icons/png/128/1024/1024218.png',
-    title: 'title',
-    description: 'description'
-  },
-  {
-    isbn: 3,
-    thumbnailUrl: 'https://image.flaticon.com/icons/png/128/1024/1024218.png',
-    title: 'title',
-    description: 'description'
-  }
-]
+import { StyleSheet, Text, View } from 'react-native';
+import * as UserService from '../services/user'
+import * as BookService from '../services/book'
 
 type Props = {};
 export default class App extends Component<Props> {
+
+
+  state = {
+    users: [],
+    books: [],
+  }
+
+  componentDidMount(){
+
+    UserService.getAllUsers().then(users => {
+      this.setState({
+        users
+      })
+    })
+
+    BookService.getAllBooks().then(books => {
+      this.setState({
+        books
+      })
+    })
+  }
+
+
   render() {
+
     return (
       <View style={styles.container}>
-        
-        {books.map(book => {
-          return(
+
+        {this.state.books.map(book => {
+          return (
             <Text>{book.title}</Text>
           )
         })}
-        
+
       </View>
     );
   }

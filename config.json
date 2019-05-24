@@ -1,6 +1,13 @@
 {
     "API": {
-        "BASE_URL": "https://a9f86f50.ngrok.io",
-        "USERS": "users"
+        "BASE_URL": "https://hd-books-service.herokuapp.com/",
+        "ENDPOINT":{
+            "USER": "user",
+            "BOOK": "book"
+        },
+        "METHOD": {
+            "GET": "GET",
+            "POST": "POST"
+        }
     }
 }
