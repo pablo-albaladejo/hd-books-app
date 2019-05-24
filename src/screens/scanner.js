@@ -5,7 +5,8 @@ import { NavigationActions, StackActions } from 'react-navigation';
 export default class Scanner extends Component {
 
     onSuccess = (e) => {
-        const actions = [
+        alert(e)
+/*         const actions = [
             StackActions.reset({
                 index: 0,
                 key: null,
@@ -22,7 +23,7 @@ export default class Scanner extends Component {
                 }
             })
         ];
-        actions.forEach(this.props.navigation.dispatch);
+        actions.forEach(this.props.navigation.dispatch); */
     }
 
     render() {

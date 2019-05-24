@@ -7,7 +7,7 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import BookList from '../components/book/BookList';
 
-const user = {
+export const user = {
     email: 'josegrobles1997@gmail.com'
 }
 export default class Home extends Component {

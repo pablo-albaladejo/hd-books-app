@@ -23,10 +23,11 @@ export const getBookById = (id) => {
 
 export const leaseBook = (user_id, book_id) => {
     return postBook({
+        id: book_id, 
+        action: 'start',
         body: {
-            user_id,
-            book_id,
-            status: 1
+            userId: user_id,
+            endDate: "2019-05-27"
         }
     })
 }
@@ -34,10 +35,10 @@ export const leaseBook = (user_id, book_id) => {
 
 export const unleaseBook = (user_id, book_id) => {
     return postBook({
+        id: book_id, 
+        action: 'end',
         body: {
-            user_id,
-            book_id,
-            status: 1
+            userId: user_id,
         }
     })
 }

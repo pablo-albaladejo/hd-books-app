@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { Text, View, TouchableOpacity } from 'react-native';
 import *  as BookService from '../services/book'
+
+//TODO: TO BE REOMVED WHEN REDUX
+import { user } from './home'
 export default class Book extends Component {
 
     state = {
@@ -19,8 +22,14 @@ export default class Book extends Component {
     }
 
 
-    onLeasing = (user_id, book_id) => {
-        BookService.leaseBook(user_id, book_id)
+    updateLeasing = () => {
+        const fn = this.state.book.status === "0" ? BookService.leaseBook : BookService.unleaseBook;
+        
+        fn(user.email, this.state.book.book_id).then(() => {
+            this.setState({
+                status: book.status
+            })
+        })    
     }
 
     render() {
@@ -29,7 +38,7 @@ export default class Book extends Component {
             <View>
                 {book && (
                     <View>
-                        <TouchableOpacity onPress={() => this.onLeasing(1,1)}>
+                        <TouchableOpacity onPress={this.updateLeasing}>
                             <Text>{'Leasing'}</Text>
                         </TouchableOpacity>
                         <Text>
