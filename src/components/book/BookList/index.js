@@ -6,8 +6,8 @@ import styles from './styles.js';
 
 import BookItem from '../BookItem';
 
-const BookList = ({ item, customStyle, onBookPressed }) => (
-  <ScrollView testID="book-list-container" style={[styles.container, customStyle]}>
+const BookList = ({ item, onBookPressed }) => (
+  <ScrollView testID="book-list-container" style={styles.container}>
     {item.map((item, index) => {
       return (
         <BookItem
@@ -25,7 +25,6 @@ const BookList = ({ item, customStyle, onBookPressed }) => (
 
 BookList.propTypes = {
   item: PropTypes.array,
-  customStyle: PropTypes.object,
   onBookPressed: PropTypes.func
 }
 

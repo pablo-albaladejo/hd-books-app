@@ -40,9 +40,10 @@ export default class Home extends Component {
     return (
       <View style={styles.container}>
         <View style={styles.background} />
-
+        <View style={styles.header}>
+          <Text style={styles.title}>Hello!</Text>
+        </View>
         <BookList
-          customStyle={{ marginTop: SCREEN_HEIGHT / 10 }}
           item={this.state.books}
           onBookPressed={this.onBookPressed}
         />
@@ -96,5 +97,20 @@ const styles = StyleSheet.create({
     fontSize: 20,
     letterSpacing: 5,
     marginLeft: 10
+  },
+
+  header: {
+    alignItems: 'center',
+    backgroundColor: '#353745',
+    height: 60,
+    justifyContent: 'flex-end',
+    width: '100%',
+  },
+
+  title: {
+    color: '#fff',
+    fontSize: 15,
+    letterSpacing: 5,
+    marginBottom: 5
   }
 });
