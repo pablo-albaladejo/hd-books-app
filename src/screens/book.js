@@ -40,7 +40,7 @@ export default class Book extends Component {
               <View style={styles.background} />
                 {book && (
                     <View style={{flex: 1, flexDirection: 'column', alignItems: 'center' }}>
-                      <View style={{ width: '90%', marginTop: 40 }}>
+                      <View style={{ width: '93%', marginTop: 40 }}>
                         <BookCard
                           author={book.author}
                           description={book.subtitle}
