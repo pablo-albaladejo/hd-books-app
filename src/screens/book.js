@@ -24,7 +24,7 @@ export default class Book extends Component {
 
 
     updateLeasing = () => {
-        const fn = this.state.book.status === "0" ? BookService.leaseBook : BookService.unleaseBook;
+        const fn = this.state.book.status === '0' ? BookService.leaseBook : BookService.unleaseBook;
         
         fn(user.email, this.state.book.book_id).then(() => {
             this.setState({
@@ -67,7 +67,7 @@ const { width: SCREEN_WIDTH, height: SCREEN_HEIGHT } = Dimensions.get('window')
 const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
-    backgroundColor: '#14977c',
+    backgroundColor: '#353745',
     flex: 1,
     justifyContent: 'space-between'
   },
@@ -75,7 +75,7 @@ const styles = StyleSheet.create({
   background: {
     borderRightColor: 'transparent',
     borderRightWidth: SCREEN_WIDTH,
-    borderTopColor: '#17ae8e',
+    borderTopColor: '#353745',
     borderTopWidth: SCREEN_HEIGHT / 2,
     height: 0,
     position: 'absolute',
@@ -86,7 +86,7 @@ const styles = StyleSheet.create({
 
   button: {
     alignItems: 'center',
-    backgroundColor: '#353745',
+    backgroundColor: '#17ae8e',
     height: 60,
     justifyContent: 'center',
     flexDirection: 'row',

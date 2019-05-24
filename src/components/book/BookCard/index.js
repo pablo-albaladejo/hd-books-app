@@ -1,10 +1,10 @@
 import React from 'react';
-import { Text, View, Image } from 'react-native';
+import { ScrollView, Text, View, Image } from 'react-native';
 
 import PropTypes from 'prop-types';
 import styles from './styles.js';
 
-const BookCard = ({ book_id, onPressCB, author, thumbnail, title, description, }) => (
+const BookCard = ({ book_id, onPressCB, author, thumbnail, title, description, status}) => (
   <View
     testID="book-item-container"
     style={styles.container}
@@ -12,13 +12,15 @@ const BookCard = ({ book_id, onPressCB, author, thumbnail, title, description, }
   >
     {!thumbnail && <View style={styles.noThumbnail} />}
     {thumbnail && <Image source={{ uri: thumbnail }} style={styles.thumbnail} />}
-    <View style={styles.content}>
-      <View>
-        <Text style={styles.title}>{title}</Text>
-        <Text style={styles.description}>{description}</Text>
+    <ScrollView>
+      <View style={styles.content}>
+        <View>
+          <Text style={styles.title}>{title}</Text>
+          <Text style={styles.description}>{description}</Text>
+        </View>
+        <Text style={styles.author}>{author}</Text>
       </View>
-      <Text style={styles.author}>{author}</Text>
-    </View>
+    </ScrollView>
   </View>
 )
 
