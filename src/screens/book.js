@@ -39,22 +39,24 @@ export default class Book extends Component {
             <View style={styles.container}>
               <View style={styles.background} />
                 {book && (
-                    <View style={{width: '90%', marginTop: 40}}>
-                      <BookCard
-                        author={book.author}
-                        description={book.subtitle}
-                        title={book.title}
-                        thumbnail={book.cover_url}
-                      />
+                    <View style={{width: SCREEN_WIDTH, flexDirection: 'column', justifyContent: 'space-around' }}>
+                      <View style={{ width: '90%', marginTop: 40 }}>
+                        <BookCard
+                          author={book.author}
+                          description={book.subtitle}
+                          title={book.title}
+                          thumbnail={book.cover_url}
+                        />
+                      </View>
+                      <TouchableOpacity
+                        onPress={this.updateLeasing}
+                        style={styles.button}
+                      >
+                        <Text style={styles.caption}>{book.status === '0' ? 'LEASE' : 'UNLEASE'}</Text>
+                      </TouchableOpacity>
                     </View>
                   )
                 }
-              <TouchableOpacity
-                onPress={this.updateLeasing}
-                style={styles.button}
-              >
-                <Text style={styles.caption}>{'Leasing'}</Text>
-              </TouchableOpacity>
             </View>
         )
     }
@@ -87,7 +89,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#353745',
     height: 60,
     justifyContent: 'center',
-    width: '100%',
     flexDirection: 'row',
   },
 
