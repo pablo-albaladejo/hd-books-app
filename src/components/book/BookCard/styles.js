@@ -3,8 +3,8 @@ import { StyleSheet } from 'react-native';
 export default StyleSheet.create({
   container: {
     backgroundColor: '#fff',
-    flexDirection: 'row',
-    height: '100%',
+    flexDirection: 'column',
+    height: '80%',
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 1 },
     shadowOpacity: 0.2,
@@ -12,13 +12,13 @@ export default StyleSheet.create({
   },
 
   thumbnail: {
-    height: 400,
+    height: 250,
     width: '100%'
   },
 
   noThumbnail: {
     backgroundColor: '#353745',
-    height: 400,
+    height: 250,
     width: '100%'
   },
 

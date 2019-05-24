@@ -15,7 +15,7 @@ export const postBook = (data = {}) =>
   apiFetch({
     baseUrl: data.baseUrl,
     token: data.token,
-    endPoint: encodeURI(Config.API.ENDPOINT.BOOK),
+    endPoint: encodeURI(Config.API.ENDPOINT.BOOK + '/' + data.id + '/lease/' + data.action),
     method: Config.API.METHOD.POST,
     body: data.body,
     headers: data.headers
