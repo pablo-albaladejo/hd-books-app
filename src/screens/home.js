@@ -45,10 +45,11 @@ export default class Home extends Component {
           onBookPressed={this.onBookPressed}
         />
 
-        <TouchableOpacity onPress={
-          () => this.props.navigation.navigate('Scanner')
-        }>
-          <Text>Scan a book</Text>
+        <TouchableOpacity 
+          onPress={() => this.props.navigation.navigate('Scanner')}
+          style={styles.button}
+        >
+          <Text style={styles.caption}>SCAN A BOOK</Text>
         </TouchableOpacity>
 
       </View>
