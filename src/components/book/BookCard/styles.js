@@ -4,7 +4,7 @@ export default StyleSheet.create({
   container: {
     backgroundColor: '#fff',
     flexDirection: 'column',
-    minHeight: '80%',
+    height: '80%',
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 1 },
     shadowOpacity: 0.2,
@@ -25,8 +25,8 @@ export default StyleSheet.create({
   content: {
     padding: 15,
     flex: 1,
-    marginLeft: 10,
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
+    height: '100%'
   },
 
   title: {
@@ -41,6 +41,7 @@ export default StyleSheet.create({
   },
 
   author: {
-    color: '#AD807D'
+    color: '#AD807D',
+    marginTop: 20
   }
 });
