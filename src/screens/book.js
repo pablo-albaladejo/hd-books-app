@@ -27,9 +27,15 @@ export default class Book extends Component {
         const fn = this.state.book.status === "0" ? BookService.leaseBook : BookService.unleaseBook;
         
         fn(user.email, this.state.book.book_id).then(() => {
+            alert('Success!!')
             this.setState({
-                status: book.status
+                book: {
+                    ...this.state.book,
+                    status: this.state.book.status
+                }
             })
+        }).catch(err => {
+            alert(JSON.stringify(err))
         })    
     }
 
@@ -42,6 +48,7 @@ export default class Book extends Component {
                     <View style={{flex: 1, flexDirection: 'column', alignItems: 'center' }}>
                       <View style={{ width: '90%', marginTop: 40 }}>
                         <BookCard
+                          book_id={book.book_id}
                           author={book.author}
                           description={book.subtitle}
                           title={book.title}
@@ -52,7 +59,7 @@ export default class Book extends Component {
                         onPress={this.updateLeasing}
                         style={styles.button}
                       >
-                        <Text style={styles.caption}>{book.status === '0' ? 'LEASE' : 'UNLEASE'}</Text>
+                        <Text style={styles.caption}>{book.status === "0" ? 'LEASE' : 'UNLEASE'}</Text>
                       </TouchableOpacity>
                     </View>
                   )

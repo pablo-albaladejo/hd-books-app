@@ -23,7 +23,7 @@ const BookCard = ({ book_id, onPressCB, author, thumbnail, title, description, }
 )
 
 BookCard.propTypes = {
-  onPressCB: PropTypes.func.isRequired,
+  onPressCB: PropTypes.func,
   book_id: PropTypes.string.isRequired,
   author: PropTypes.string,
   thumbnail: PropTypes.string,
