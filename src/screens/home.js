@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, Dimensions, TouchableOpacity, Text } from 'react-native';
+import { StyleSheet, View, Dimensions, TouchableOpacity, Text, ScrollView } from 'react-native';
 import * as UserService from '../services/user';
 import * as BookService from '../services/book';
 
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
-import BookItem from '../components/book/BookItem';
+import BookList from '../components/book/BookList';
 
 export default class Home extends Component {
 
@@ -41,26 +41,18 @@ export default class Home extends Component {
       <View style={styles.container}>
         <View style={styles.background} />
 
-        <View style={{ zIndex: 1 }}>
-          {this.state.books.map((book, index) => {
-            return (
-              <BookItem
-                onPressCB={this.onBookPressed}
-                key={'book_' + index.toString()}
-                thumbnail={book.cover_url}
-                author={book.author}
-                title={book.title}
-                description={book.description}
-              />
-            )
-          })}
-        </View>
+        <BookList
+          customStyle={{ marginTop: SCREEN_HEIGHT / 10 }}
+          item={this.state.books}
+          onBookPressed={this.onBookPressed}
+        />
 
-        <TouchableOpacity onPress={
-          () => this.props.navigation.navigate('Scanner')
-        }>
+        <TouchableOpacity
+          onPress={() => this.props.navigation.navigate('Scanner')}
+          style={styles.button}
+        >
           <Icon name="qrcode-scan" size={30} color="#900" />
-          <Text>Scan a book</Text>
+          <Text style={styles.caption}>SCAN A BOOK</Text>
         </TouchableOpacity>
 
       </View>
@@ -72,20 +64,35 @@ const { width: SCREEN_WIDTH, height: SCREEN_HEIGHT } = Dimensions.get('window')
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#fff',
+    backgroundColor: '#14977c',
+    flex: 1,
+    justifyContent: 'space-between'
   },
+
   background: {
-    position: 'absolute',
-    zIndex: 0,
-    width: SCREEN_WIDTH,
-    height: 0,
+    borderRightColor: 'transparent',
+    borderRightWidth: SCREEN_WIDTH,
     borderTopColor: '#17ae8e',
     borderTopWidth: SCREEN_HEIGHT / 2,
-    borderRightWidth: SCREEN_WIDTH,
-    borderRightColor: 'transparent',
-    top: 0
+    height: 0,
+    position: 'absolute',
+    top: 0,
+    width: SCREEN_WIDTH,
+    zIndex: 0,
   },
+
+  button: {
+    alignItems: 'center',
+    backgroundColor: '#fff',
+    height: 60,
+    justifyContent: 'center',
+    width: '100%',
+  },
+
+  caption: {
+    color: '#17ae8e',
+    fontSize: 20,
+    letterSpacing: 5
+  }
 });

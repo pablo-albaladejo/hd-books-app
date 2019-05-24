@@ -9,7 +9,6 @@ export default StyleSheet.create({
     shadowOpacity: 0.1,
     marginBottom: 15,
     padding: 15,
-    width: '90%',
   },
 
   thumbnail: {
@@ -26,12 +25,14 @@ export default StyleSheet.create({
   content: {
     flex: 1,
     marginLeft: 10,
-    minHeight: 100
+    height: 100,
+    justifyContent: 'space-between'
   },
 
   title: {
     color: '#000',
-    fontSize: 15
+    fontSize: 15,
+    marginBottom: 5
   },
 
   description: {
