@@ -13,8 +13,10 @@ const BookItem = ({ book_id, onPressCB, author, thumbnail, title, description,  
     {!thumbnail && <View style={styles.noThumbnail} />}
     {thumbnail && <Image source={{ uri: thumbnail }} style={styles.thumbnail} />}
     <View style={styles.content}>
-      <Text style={styles.title}>{title}</Text>
-      <Text style={styles.description}>{description}</Text>
+      <View>
+        <Text style={styles.title}>{title}</Text>
+        <Text style={styles.description}>{description}</Text>
+      </View>
       <Text style={styles.author}>{author}</Text>
     </View>
   </TouchableOpacity>
