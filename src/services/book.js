@@ -5,3 +5,8 @@ export const getAllBooks = () => {
         id: 'list'
     })
 }
+export const getBookById = () => {
+    return getBook({
+        id: 'list'
+    })
+}
