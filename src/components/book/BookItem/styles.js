@@ -4,16 +4,29 @@ export default StyleSheet.create({
   container: {
     backgroundColor: '#fff',
     flexDirection: 'row',
-    width: '90%',
     shadowColor: '#000',
     shadowOffset: {  width: 0,  height: 1 },
     shadowOpacity: 0.1,
     marginBottom: 15,
-    padding: 15
+    padding: 15,
+    width: '90%',
+  },
+
+  thumbnail: {
+    maxHeight: 100,
+    width: 60
+  },
+
+  noThumbnail: {
+    backgroundColor: '#353745',
+    maxHeight: 100,
+    width: 60
   },
 
   content: {
-    marginLeft: 10
+    flex: 1,
+    marginLeft: 10,
+    minHeight: 100
   },
 
   title: {
@@ -24,7 +37,7 @@ export default StyleSheet.create({
     color: '#9B9B9B'
   },
 
-  isbn: {
+  author: {
     color: '#AD807D'
   }
 });
