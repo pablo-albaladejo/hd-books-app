@@ -12,6 +12,7 @@ const BookList = ({ item, customStyle, onBookPressed }) => (
       return (
         <BookItem
           onPressCB={onBookPressed}
+          book_id={item.book_id}
           key={'book_' + index.toString()}
           thumbnail={item.cover_url}
           author={item.author}

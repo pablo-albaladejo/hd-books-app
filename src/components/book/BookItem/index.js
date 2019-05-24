@@ -23,7 +23,7 @@ const BookItem = ({ book_id, onPressCB, author, thumbnail, title, description,  
 BookItem.propTypes = {
   onPressCB: PropTypes.func.isRequired,
   book_id: PropTypes.string.isRequired,
-  author: PropTypes.number,
+  author: PropTypes.string,
   thumbnail: PropTypes.string,
   title: PropTypes.string,
   description: PropTypes.string,
