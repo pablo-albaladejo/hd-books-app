@@ -4,15 +4,16 @@ import { ScrollView, Text, View, Image } from 'react-native';
 import PropTypes from 'prop-types';
 import styles from './styles.js';
 
-const BookCard = ({ book_id, onPressCB, author, thumbnail, title, description, status}) => (
+const BookCard = ({ book_id, onPressCB, author, thumbnail, title, description, status }) => (
   <View
     testID="book-item-container"
     style={styles.container}
     onPress={() => onPressCB(book_id)}
   >
-    {!thumbnail && <View style={styles.noThumbnail} />}
-    {thumbnail && <Image source={{ uri: thumbnail }} style={styles.thumbnail} />}
+
     <ScrollView>
+      {!thumbnail && <View style={styles.noThumbnail} />}
+      {thumbnail && <Image source={{ uri: thumbnail }} style={styles.thumbnail} />}
       <View style={styles.content}>
         <View>
           <Text style={styles.title}>{title}</Text>
