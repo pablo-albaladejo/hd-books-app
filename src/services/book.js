@@ -5,6 +5,16 @@ export const getAllBooks = () => {
         id: 'list'
     })
 }
+
+export const getAllBooksById = (id) => {
+    return getBook({
+        id: 'list',
+        params: {
+            email: id,
+        }
+    })
+}
+
 export const getBookById = (id) => {
     return getBook({
         id,

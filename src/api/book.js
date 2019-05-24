@@ -7,7 +7,7 @@ export const getBook = (data = {}) =>
     token: data.token,
     endPoint: encodeURI(Config.API.ENDPOINT.BOOK + '/' + data.id),
     method: Config.API.METHOD.GET,
-    body: data.body,
+    params: data.params,
     headers: data.headers
   });
 
