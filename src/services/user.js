@@ -5,3 +5,9 @@ export const getAllUsers = () => {
         id: 'list'
     })
 }
+
+export const getUserById = (id) => {
+    return getUser({
+        id
+    })
+}

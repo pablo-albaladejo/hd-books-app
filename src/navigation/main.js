@@ -5,7 +5,10 @@ import ScannerScreen from '../screens/scanner'
 
 const AppNavigator = createStackNavigator({
   Home: {
-    screen: HomeScreen
+    screen: HomeScreen,
+    navigationOptions: {
+      header: null,
+    },
   },
   Scanner: {
     screen: ScannerScreen
