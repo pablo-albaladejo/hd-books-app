@@ -3,7 +3,7 @@ import { StyleSheet, View, Dimensions, TouchableOpacity, Text } from 'react-nati
 import * as UserService from '../services/user';
 import * as BookService from '../services/book';
 
-import Icon from 'react-native-vector-icons/FontAwesome';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import BookItem from '../components/book/BookItem';
 
@@ -59,7 +59,7 @@ export default class Home extends Component {
         <TouchableOpacity onPress={
           () => this.props.navigation.navigate('Scanner')
         }>
-          <Icon name="rocket" size={30} color="#900" />
+          <Icon name="qrcode-scan" size={30} color="#900" />
           <Text>Scan a book</Text>
         </TouchableOpacity>
 
