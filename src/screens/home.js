@@ -1,28 +1,18 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow
- */
-
 import React, { Component } from 'react';
-import { StyleSheet, View, Dimensions } from 'react-native';
+import { StyleSheet, View, Dimensions, TouchableOpacity, Text } from 'react-native';
 import * as UserService from '../services/user';
 import * as BookService from '../services/book';
 
 import BookItem from '../components/book/BookItem';
 
-type Props = {};
-export default class App extends Component<Props> {
-
+export default class Home extends Component {
 
   state = {
     users: [],
     books: [],
   }
 
-  componentDidMount(){
+  componentDidMount() {
 
     UserService.getAllUsers().then(users => {
       this.setState({
@@ -37,13 +27,13 @@ export default class App extends Component<Props> {
     })
   }
 
-
   render() {
 
     return (
       <View style={styles.container}>
         <View style={styles.background}/>
-        <View style={{zIndex: 1}}>
+
+        <View style={{ zIndex: 1 }}>
           {this.state.books.map(book => {
             return (
               <BookItem
@@ -55,6 +45,13 @@ export default class App extends Component<Props> {
             )
           })}
           </View>
+
+        <TouchableOpacity  onPress={
+          () => this.props.navigation.navigate('Scanner')
+        }>
+            <Text>SCANNER</Text>
+        </TouchableOpacity>
+
       </View>
     );
   }
