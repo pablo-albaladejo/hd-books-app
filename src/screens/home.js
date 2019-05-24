@@ -7,6 +7,9 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import BookList from '../components/book/BookList';
 
+const user = {
+    email: 'josegrobles1997@gmail.com'
+}
 export default class Home extends Component {
 
   state = {
@@ -22,7 +25,7 @@ export default class Home extends Component {
       })
     })
 
-    BookService.getAllBooks().then(books => {
+    BookService.getAllBooksById(user.email).then(books => {
       this.setState({
         books
       })
