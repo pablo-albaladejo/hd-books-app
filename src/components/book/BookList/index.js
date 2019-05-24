@@ -6,11 +6,13 @@ import styles from './styles.js';
 
 import BookItem from '../BookItem';
 
-const BookList = ({ item, customStyle }) => (
+const BookList = ({ item, customStyle, onBookPressed }) => (
   <ScrollView testID="book-list-container" style={[styles.container, customStyle]}>
-    {item.map(item => {
+    {item.map((item, index) => {
       return (
         <BookItem
+          onPressCB={onBookPressed}
+          key={'book_' + index.toString()}
           thumbnail={item.cover_url}
           author={item.author}
           title={item.title}
@@ -23,7 +25,8 @@ const BookList = ({ item, customStyle }) => (
 
 BookList.propTypes = {
   item: PropTypes.array,
-  customStyle: PropTypes.object
+  customStyle: PropTypes.object,
+  onBookPressed: PropTypes.func
 }
 
 export default BookList;

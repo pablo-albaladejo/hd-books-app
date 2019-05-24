@@ -27,21 +27,28 @@ export default class Home extends Component {
     })
   }
 
+  onBookPressed = (id) => {
+    this.props.navigation.navigate('Book', {
+      id,
+    })
+  }
+
   render() {
 
     return (
       <View style={styles.container}>
-        <View style={styles.background}/>
+        <View style={styles.background} />
 
-        <BookList 
+        <BookList
           customStyle={{ marginTop: SCREEN_HEIGHT / 10 }}
           item={this.state.books}
+          onBookPressed={this.onBookPressed}
         />
 
-        <TouchableOpacity style={styles.button} onPress={
+        <TouchableOpacity onPress={
           () => this.props.navigation.navigate('Scanner')
         }>
-          <Text style={styles.caption}>SCANNER</Text>
+          <Text>Scan a book</Text>
         </TouchableOpacity>
 
       </View>
