@@ -34,9 +34,10 @@ export default class Home extends Component {
         <View style={styles.background} />
 
         <View style={{ zIndex: 1 }}>
-          {this.state.books.map(book => {
+          {this.state.books.map((book, index) => {
             return (
               <BookItem
+                key={'book_' + index.toString()}
                 thumbnail={book.cover_url}
                 author={book.author}
                 title={book.title}
