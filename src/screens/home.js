@@ -27,6 +27,12 @@ export default class Home extends Component {
     })
   }
 
+  onBookPressed = (id) => {
+    this.props.navigation.navigate('Book', {
+      id,
+    })
+  }
+
   render() {
 
     return (
@@ -37,6 +43,7 @@ export default class Home extends Component {
           {this.state.books.map((book, index) => {
             return (
               <BookItem
+                onPressCB={this.onBookPressed}
                 key={'book_' + index.toString()}
                 thumbnail={book.cover_url}
                 author={book.author}
